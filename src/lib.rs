@@ -55,8 +55,8 @@ pub fn calc_signal_idft_better(input_rex: &mut [f32], input_imx: &mut [f32], out
 
 
     for (re, im) in input_rex.iter_mut().zip(input_imx.iter_mut()) {
-        *re = re/input_len as f32;
-        *im = -im/input_len as f32;
+        *re = *re/input_len as f32;
+        *im = *im*(-1.0)/input_len as f32;
     }
 
     /*
@@ -200,6 +200,19 @@ pub fn complex_dft(time_rex: &[f32],
 
                         }
         }
+
+
+/// convolution of two signals (signal and kernel)
+pub fn convolution(input_signal: &[f32], impulse: &[f32], output: &mut [f32]) {
+    for i in 0..output.len() {
+        //output[i] = 3.0;
+        for j in 0..input_signal.len() {
+            for k in 0..impulse.len() {
+                output[j+k] += input_signal[j] * impulse[k]
+            }
+        }
+    }    
+}
 
 
 
