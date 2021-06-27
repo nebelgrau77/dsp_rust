@@ -202,6 +202,7 @@ pub fn complex_dft(time_rex: &[f32],
         }
 
 
+        /*
 /// convolution of two signals (signal and kernel)
 pub fn convolution(input_signal: &[f32], impulse: &[f32], output: &mut [f32]) {
     for i in 0..output.len() {
@@ -213,7 +214,7 @@ pub fn convolution(input_signal: &[f32], impulse: &[f32], output: &mut [f32]) {
         }
     }    
 }
-
+ */
 
 
 
